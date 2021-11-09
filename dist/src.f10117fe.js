@@ -136,6 +136,10 @@ function () {
     return this.data[propName];
   };
 
+  User.prototype.set = function (update) {
+    Object.assign(this.data, update);
+  };
+
   return User;
 }();
 
@@ -151,6 +155,9 @@ var User_1 = require("./models/User");
 
 var user = new User_1.User({
   name: "ismail harmanda",
+  age: 28
+});
+user.set({
   age: 29
 });
 console.log(user.get("name"));
