@@ -1,3 +1,8 @@
+interface UserProps {
+  name: string;
+  age: number;
+}
+
 export class User {
-  constructor(private data: { name: string; age: number });
+  constructor(private data: UserProps);
 }
