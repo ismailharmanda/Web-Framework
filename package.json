@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  },
+  "name": "web-framework",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
