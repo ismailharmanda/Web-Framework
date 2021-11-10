@@ -147,6 +147,18 @@ function () {
     this.events[eventName] = handlers;
   };
 
+  User.prototype.trigger = function (eventName) {
+    var handlers = this.events[eventName]; //Yukarıda kullandığım gibi de çalışır.
+
+    if (!handlers || handlers.length === 0) {
+      return;
+    }
+
+    handlers.forEach(function (callback) {
+      callback();
+    });
+  };
+
   return User;
 }();
 
@@ -164,10 +176,18 @@ var user = new User_1.User({
   name: "ismail harmanda",
   age: 28
 });
-user.on("change", function () {});
-user.on("click", function () {});
-user.on("click", function () {});
-console.log(user);
+user.on("change", function () {
+  console.log("Change #1");
+});
+user.on("click", function () {
+  console.log("Click #1");
+});
+user.on("click", function () {
+  console.log("Click #2");
+});
+user.trigger("change");
+user.trigger("click");
+user.trigger("noeventwiththisname");
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
