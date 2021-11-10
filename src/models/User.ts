@@ -43,7 +43,10 @@ export class User {
     axios
       .get(`${apiUrl}/users/${this.get("id")}`)
       .then((response: AxiosResponse): void => {
-        this.set(response.data);
+        response.status === 200 && this.set(response.data);
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }
 }
