@@ -5,9 +5,12 @@
   "name": "web-framework",
   "version": "1.0.0",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:db": "json-server -w db.json",
+    "start:parcel": "parcel index.html"
   },
   "author": "",
   "license": "ISC",
