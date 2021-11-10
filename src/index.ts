@@ -1,9 +1,7 @@
 import { User } from "./models/User";
 
-const user = new User({ id: 4, name: "Sevinç Harmanda", age: 50 });
-
-user.save();
-
-setTimeout(() => {
-  console.log(user);
-}, 1000);
+const user = new User({ name: "İsmail Harmanda", age: 29 });
+user.events.on("click", () => {
+  console.log("Clicked");
+});
+user.events.trigger("click");
