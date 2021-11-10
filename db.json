@@ -1,3 +1,29 @@
 {
-  "users": []
+  "users": [
+    {
+      "name": "İsmail harmanda",
+      "age": 29,
+      "id": 1
+    },
+    {
+      "name": "hilal harmanda",
+      "age": 20,
+      "id": 2
+    },
+    {
+      "name": "İsmail harmanda",
+      "age": 29,
+      "id": 3
+    },
+    {
+      "name": "İsmail harmanda",
+      "age": 29,
+      "id": 4
+    },
+    {
+      "name": "İsmail harmanda",
+      "age": 29,
+      "id": 5
+    }
+  ]
 }
