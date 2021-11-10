@@ -2275,6 +2275,17 @@ function () {
     });
   };
 
+  User.prototype.save = function () {
+    var id = this.get("id");
+
+    if (id) {
+      // put
+      axios_1.default.put(apiUrl + "/users/" + id, this.data);
+    } else {
+      axios_1.default.post(apiUrl + "/users", this.data);
+    }
+  };
+
   return User;
 }();
 
@@ -2289,9 +2300,11 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  id: 1
+  id: 4,
+  name: "Sevinç Harmanda",
+  age: 50
 });
-user.fetch();
+user.save();
 setTimeout(function () {
   console.log(user);
 }, 1000);

@@ -49,4 +49,14 @@ export class User {
         console.log(e);
       });
   }
+
+  save(): void {
+    const id = this.get("id");
+    if (id) {
+      // put
+      axios.put(`${apiUrl}/users/${id}`, this.data);
+    } else {
+      axios.post(`${apiUrl}/users`, this.data);
+    }
+  }
 }
