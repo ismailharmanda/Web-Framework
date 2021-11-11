@@ -4,7 +4,7 @@ const apiUrl = "http://localhost:3000";
 export const rootUrl = apiUrl + "/users";
 
 interface HasId {
-  id: number;
+  id?: number;
 }
 
 export class Sync<T extends HasId> {
