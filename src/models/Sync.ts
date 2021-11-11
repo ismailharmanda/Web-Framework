@@ -1,7 +1,7 @@
 import axios, { AxiosPromise } from "axios";
 
 const apiUrl = "http://localhost:3000";
-const rootUrl = apiUrl + "/users";
+export const rootUrl = apiUrl + "/users";
 
 interface HasId {
   id: number;
