@@ -2386,6 +2386,20 @@ function () {
     this.events.trigger("change");
   };
 
+  User.prototype.fetch = function () {
+    var _this = this;
+
+    var id = this.get("id");
+
+    if (typeof id !== "number") {
+      throw new Error("Can not fetch without an id");
+    }
+
+    this.sync.fetch(id).then(function (response) {
+      _this.set(response.data);
+    });
+  };
+
   return User;
 }();
 
@@ -2400,16 +2414,12 @@ Object.defineProperty(exports, "__esModule", {
 var User_1 = require("./models/User");
 
 var user = new User_1.User({
-  name: "İsmail Harmanda",
-  age: 29
+  id: 5
 });
-console.log(user.get("name"));
 user.on("change", function () {
-  console.log("User was changed");
+  console.log(user);
 });
-user.set({
-  name: "New Name"
-});
+user.fetch();
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
