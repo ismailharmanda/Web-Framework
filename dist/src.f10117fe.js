@@ -2307,12 +2307,14 @@ var Attributes =
 /** @class */
 function () {
   function Attributes(data) {
-    this.data = data;
-  }
+    var _this = this;
 
-  Attributes.prototype.get = function (key) {
-    return this.data[key];
-  };
+    this.data = data;
+
+    this.get = function (key) {
+      return _this.data[key];
+    };
+  }
 
   Attributes.prototype.set = function (update) {
     Object.assign(this.data, update);
@@ -2393,9 +2395,7 @@ var user = new User_1.User({
   name: "İsmail Harmanda",
   age: 29
 });
-user.on("change", function () {
-  console.log("user was changed");
-});
+console.log(user.get("name"));
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
