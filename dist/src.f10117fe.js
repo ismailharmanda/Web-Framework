@@ -2471,10 +2471,6 @@ function (_super) {
 }(Model_1.Model);
 
 exports.User = User;
-var user = User.buildUser({});
-user.get("id");
-user.get("name");
-user.get("age");
 },{"./Model":"src/models/Model.ts","./Attributes":"src/models/Attributes.ts","./ApiSync":"src/models/ApiSync.ts","./Eventing":"src/models/Eventing.ts"}],"src/index.ts":[function(require,module,exports) {
 "use strict";
 
@@ -2484,14 +2480,18 @@ Object.defineProperty(exports, "__esModule", {
 
 var User_1 = require("./models/User");
 
-var user = new User_1.User({
-  id: 5,
-  name: "new name",
-  age: 0
+var user = User_1.User.buildUser({
+  id: 6,
+  name: "Osman",
+  age: 40
 });
-user.on("save", function () {
+user.on("change", function () {
   console.log(user);
 });
+user.on("save", function () {
+  console.log("Successfully saved to database", user);
+});
+user.fetch();
 user.save();
 },{"./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

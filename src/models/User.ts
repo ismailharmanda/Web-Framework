@@ -18,8 +18,3 @@ export class User extends Model<UserProps> {
     );
   }
 }
-
-const user = User.buildUser({});
-user.get("id");
-user.get("name");
-user.get("age");
