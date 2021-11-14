@@ -1,13 +1,10 @@
-import { User } from "./models/User";
+import { Collection } from "./models/Collection";
+import { rootUrl } from "./models/ApiSync";
 
-const user = User.buildUser({ id: 6, name: "Osman", age: 40 });
+const collection = new Collection(rootUrl);
 
-user.on("change", () => {
-  console.log(user);
-});
-user.on("save", () => {
-  console.log("Successfully saved to database", user);
+collection.on("change", () => {
+  console.log(collection);
 });
 
-user.fetch();
-user.save();
+collection.fetch();
