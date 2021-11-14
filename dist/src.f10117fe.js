@@ -129,18 +129,20 @@ var UserForm =
 /** @class */
 function () {
   function UserForm(parent, model) {
+    var _this = this;
+
     this.parent = parent;
     this.model = model;
+
+    this.onSetAgeClick = function () {
+      _this.model.setRandomAge();
+    };
   }
 
   UserForm.prototype.eventsMap = function () {
     return {
       "click:.set-age": this.onSetAgeClick
     };
-  };
-
-  UserForm.prototype.onSetAgeClick = function () {
-    console.log("button was clicked");
   };
 
   UserForm.prototype.template = function () {
@@ -2561,7 +2563,17 @@ function (_super) {
   __extends(User, _super);
 
   function User() {
-    return _super !== null && _super.apply(this, arguments) || this;
+    var _this = _super !== null && _super.apply(this, arguments) || this;
+
+    _this.setRandomAge = function () {
+      var age = Math.round(Math.random() * 100);
+
+      _this.set({
+        age: age
+      });
+    };
+
+    return _this;
   }
 
   User.buildUser = function (attrs) {
