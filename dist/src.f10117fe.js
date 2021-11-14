@@ -117,9 +117,47 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.ts":[function(require,module,exports) {
+})({"src/views/UserForm.ts":[function(require,module,exports) {
+"use strict";
 
-},{}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.UserForm = void 0;
+
+var UserForm =
+/** @class */
+function () {
+  function UserForm(parent) {
+    this.parent = parent;
+  }
+
+  UserForm.prototype.template = function () {
+    return "\n        <div>\n        <h1>User Form</h1>\n        <input />\n        </div>\n        ";
+  };
+
+  UserForm.prototype.render = function () {
+    var templateElement = document.createElement("template");
+    templateElement.innerHTML = this.template();
+    this.parent.append(templateElement.content);
+  };
+
+  return UserForm;
+}();
+
+exports.UserForm = UserForm;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var UserForm_1 = require("./views/UserForm");
+
+var userForm = new UserForm_1.UserForm(document.querySelector("#root"));
+userForm.render();
+},{"./views/UserForm":"src/views/UserForm.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
