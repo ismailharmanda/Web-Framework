@@ -132,29 +132,10 @@ function () {
     this.attributes = attributes;
     this.events = events;
     this.sync = sync;
+    this.on = this.events.on;
+    this.trigger = this.events.trigger;
+    this.get = this.attributes.get;
   }
-
-  Object.defineProperty(Model.prototype, "on", {
-    get: function get() {
-      return this.events.on;
-    },
-    enumerable: false,
-    configurable: true
-  });
-  Object.defineProperty(Model.prototype, "trigger", {
-    get: function get() {
-      return this.events.trigger;
-    },
-    enumerable: false,
-    configurable: true
-  });
-  Object.defineProperty(Model.prototype, "get", {
-    get: function get() {
-      return this.attributes.get;
-    },
-    enumerable: false,
-    configurable: true
-  });
 
   Model.prototype.set = function (update) {
     this.attributes.set(update);
