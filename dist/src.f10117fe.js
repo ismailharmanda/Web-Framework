@@ -402,7 +402,7 @@ function (_super) {
   };
 
   UserEdit.prototype.template = function () {
-    return "\n        <div>\n            <div class=\"user-form\"></div>\n            <div class=\"user-show\"></div>\n        </div>\n        ";
+    return "\n        <div>\n        <div class=\"user-show\"></div>\n            <div class=\"user-form\"></div>\n        </div>\n        ";
   };
 
   return UserEdit;
