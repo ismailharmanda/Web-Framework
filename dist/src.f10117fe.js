@@ -195,7 +195,7 @@ function () {
 }();
 
 exports.View = View;
-},{}],"src/views/UserForm.ts":[function(require,module,exports) {
+},{}],"src/views/UserEdit.ts":[function(require,module,exports) {
 "use strict";
 
 var __extends = this && this.__extends || function () {
@@ -229,57 +229,34 @@ var __extends = this && this.__extends || function () {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.UserForm = void 0;
+exports.UserEdit = void 0;
 
 var View_1 = require("./View");
 
-var UserForm =
+var UserEdit =
 /** @class */
 function (_super) {
-  __extends(UserForm, _super);
+  __extends(UserEdit, _super);
 
-  function UserForm() {
-    var _this = _super !== null && _super.apply(this, arguments) || this;
-
-    _this.onSaveClick = function () {
-      _this.model.save();
-    };
-
-    _this.onSetNameClick = function () {
-      var input = _this.parent.querySelector("input");
-
-      if (input) {
-        var name = input.value;
-
-        _this.model.set({
-          name: name
-        });
-      }
-    };
-
-    _this.onSetAgeClick = function () {
-      _this.model.setRandomAge();
-    };
-
-    return _this;
+  function UserEdit() {
+    return _super !== null && _super.apply(this, arguments) || this;
   }
 
-  UserForm.prototype.eventsMap = function () {
+  UserEdit.prototype.regionsMaps = function () {
     return {
-      "click:.set-age": this.onSetAgeClick,
-      "click:.set-name": this.onSetNameClick,
-      "click:.save-model": this.onSaveClick
+      userShow: ".user-show",
+      userForm: ".user-form"
     };
   };
 
-  UserForm.prototype.template = function () {
-    return "\n        <div>\n        <input placeholder=\"" + this.model.get("name") + "\" />\n        <button class=\"set-name\">Change Name</button>\n        <button class=\"set-age\">Set Random Age</button>\n        <button class=\"save-model\">Save User</button>\n        </div>\n        ";
+  UserEdit.prototype.template = function () {
+    return "\n        <div>\n            <div class=\"user-form\"></div>\n            <div class=\"user-show\"></div>\n        </div>\n        ";
   };
 
-  return UserForm;
+  return UserEdit;
 }(View_1.View);
 
-exports.UserForm = UserForm;
+exports.UserEdit = UserEdit;
 },{"./View":"src/views/View.ts"}],"src/models/Model.ts":[function(require,module,exports) {
 "use strict";
 
@@ -2699,7 +2676,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var UserForm_1 = require("./views/UserForm");
+var UserEdit_1 = require("./views/UserEdit");
 
 var User_1 = require("./models/User");
 
@@ -2710,12 +2687,13 @@ var user = User_1.User.buildUser({
 var root = document.querySelector("#root");
 
 if (root) {
-  var userForm = new UserForm_1.UserForm(root, user);
-  userForm.render();
+  var userEdit = new UserEdit_1.UserEdit(root, user);
+  userEdit.render();
+  console.log(userEdit);
 } else {
   throw new Error("Root element not found");
 }
-},{"./views/UserForm":"src/views/UserForm.ts","./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./views/UserEdit":"src/views/UserEdit.ts","./models/User":"src/models/User.ts"}],"../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
