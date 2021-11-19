@@ -34,6 +34,16 @@
       "id": 7,
       "name": "Yepyeni isim",
       "age": 60
+    },
+    {
+      "name": "NAME",
+      "age": 20,
+      "id": 8
+    },
+    {
+      "name": "NAME",
+      "age": 20,
+      "id": 9
     }
   ]
 }
