@@ -134,6 +134,10 @@ function () {
     this.bindModel();
   }
 
+  View.prototype.eventsMap = function () {
+    return {};
+  };
+
   View.prototype.bindModel = function () {
     var _this = this;
 
